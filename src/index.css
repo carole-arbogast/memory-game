@@ -1,0 +1,143 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: inherit;
+  background: #E1DC9C;
+}
+
+#root {
+  height: inherit;
+}
+
+.MemoryApp {
+  max-width: 720px;
+  margin: auto;
+  padding-top: 10rem;
+}
+
+.menu {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.menu h2 {
+  font-size: 2rem;
+}
+.menu .menuItem {
+  width: 50%;
+  background: white;
+  border-radius: 15px;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 3px 3px 7px rgba(68, 67, 47, 0.3);
+  transition: 0.3s;
+  margin: 1rem 0;
+}
+.menu .menuItem:hover {
+  cursor: pointer;
+}
+
+.modal {
+  opacity: 0;
+  z-index: -1;
+  width: 100%;
+  position: absolute;
+}
+.modal.open {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.2s;
+  z-index: 10;
+}
+.modal:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.game {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: auto;
+}
+.game .white {
+  color: white;
+}
+
+.cards {
+  display: flex; 
+  max-width: 55%;
+  flex-wrap: wrap; 
+}
+.card {
+  position: relative;
+  width: 150px;
+  height: 220px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+  margin: 0.5rem;
+}
+.card:hover {
+  box-shadow: 9px 9px 21px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.card p {
+  user-select: none;
+  text-align: center;
+  font: 100px/220px Georgia, Times New Roman, serif;
+  margin: 0;
+}
+.card:before {
+  position: absolute;
+  font-size: 35px;
+  left: 5px;
+  top: 5px;
+}
+.card:after {
+  position: absolute;
+  font-size: 35px;
+  right: 5px;
+  bottom: 5px;
+}
+.card.diamonds:before, .card.diamonds:after {
+  content: "♦";
+  color: #ff0000;
+}
+.card.hearts:before, .card.hearts:after {
+  content: "♥";
+  color: #ff0000;
+}
+.card.clubs:before, .card.clubs:after {
+  content: "♣";
+  color: #000;
+}
+.card.spades:before, .card.spades:after {
+  content: "♠";
+  color: #000;
+}
+.card.hidden {
+  background: url("./suits-b&w.png");
+}
+.card.hidden:hover {
+  background: url("./suits.png");
+}
+.card.hidden:after, .card.hidden:before {
+  content: "";
+}
+.card.hidden p {
+  display: none;
+}
